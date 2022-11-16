@@ -15,7 +15,6 @@ Console.Write($"M = {numM}, N = {numN} -> ");
 int Sum = sumNaturalElements(numM, numN);
 Console.Write(Sum);
 
-
 int sumNaturalElements(int m, int n)
 {
     if (m == n)
