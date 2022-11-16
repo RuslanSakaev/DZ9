@@ -1,6 +1,7 @@
 ﻿// Задача 66: 
 // Задайте значения M и N. 
 // Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// Для нахождения суммы чисел от M до N используется формула: (M+N)×(N-M+1)/2
 
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
@@ -14,14 +15,28 @@ Console.Write($"M = {numM}, N = {numN} -> ");
 int Sum = sumNaturalElements(numM, numN);
 Console.Write(Sum);
 
-int sumNaturalElements (int numb1, int numb2)
+
+int sumNaturalElements(int m, int n)
 {
-    if (numb2 == numb1) return 0;
-    return sumNaturalElements(numb1, numb2 -1) * (numb2 - numb1 + 1) / 2;
+    if (m == n)
+    {
+        return m;
+    }
+    else if (m < n)
+    {
+        return m + sumNaturalElements(m + 1, n);
+    }
+    else
+    {
+        return m + sumNaturalElements(m, n + 1);
+    }
 }
 
-// через тернарный оператор
-// int DegreeNumber (int numb1, int numb2)
+
+
+
+
+// int sumNaturalElements(int m, int n)
 // {
-//     return numb2 == 0 ? 1 : numb1 * DegreeNumber (numb1, numb2-1);
+//     return m == n ? 0 : m + sumNaturalElements(m +1, n);
 // }
